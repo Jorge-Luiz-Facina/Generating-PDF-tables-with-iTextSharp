@@ -2,11 +2,13 @@
 using iTextSharp.text.pdf;
 using System.Collections.Generic;
 using System.IO;
+using Generating_PDF_with_iTextSharp.ScoreTable;
 
-namespace Generating_PDF_with_iTextSharp
+namespace Generating_PDF_with_iTextSharp.Table
 {
-    class PDFFormatTableGenerator
+    public class PDFFormatTableGenerator
     {
+        public const string ARCHIVE_NAME = "score";
         private Document document;
         private PdfWriter writer;
         private PdfPTable table;
@@ -16,15 +18,15 @@ namespace Generating_PDF_with_iTextSharp
         {
             document = new Document(PageSize.A4);
             document.SetMargins(3, 2, 3, 2);
-            writer = PdfWriter.GetInstance(document, new FileStream(Directory.GetCurrentDirectory() + "\\score.pdf", FileMode.Create));
+            writer = PdfWriter.GetInstance(document, new FileStream(Directory.GetCurrentDirectory() + "\\" + ARCHIVE_NAME + ".pdf", FileMode.Create));
             document.Open();
         }
 
-        public PDFFormatTableGenerator(string name)
+        public PDFFormatTableGenerator(string archiveName)
         {
             document = new Document(PageSize.A4);
             document.SetMargins(3, 2, 3, 2);
-            writer = PdfWriter.GetInstance(document, new FileStream(Directory.GetCurrentDirectory() + "\\" + name + ".pdf", FileMode.Create));
+            writer = PdfWriter.GetInstance(document, new FileStream(Directory.GetCurrentDirectory() + "\\" + archiveName + ".pdf", FileMode.Create));
             document.Open();
         }
 
@@ -46,6 +48,8 @@ namespace Generating_PDF_with_iTextSharp
 
         public void setNameUser(string name, Font font)
         {
+            if(numberColumns.Equals(0))
+                throw new System.ArgumentException("Parameter cannot be null", "numberColumns");
             PdfPCell cell = setPdfPCellAlignmentCenter(new Phrase(name, font));
             cell.Colspan = numberColumns;
             table.AddCell(cell);
@@ -53,7 +57,9 @@ namespace Generating_PDF_with_iTextSharp
 
         public void setFirstLine(List<Column> columns)
         {
-            foreach(Column column in columns)
+            if (!numberColumns.Equals(columns.Count))
+                throw new System.Exception("numberColumns different columns.Count");
+            foreach (Column column in columns)
             {
                 Paragraph newColumn = new Paragraph(column.name, column.font);
                 PdfPCell newCell = setPdfPCellAlignmentCenter(newColumn);

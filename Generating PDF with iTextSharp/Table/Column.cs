@@ -1,8 +1,8 @@
 ﻿using iTextSharp.text;
 
-namespace Generating_PDF_with_iTextSharp
+namespace Generating_PDF_with_iTextSharp.Table
 {
-    class Column
+    public class Column
     {
         public string name;
         public Font font;

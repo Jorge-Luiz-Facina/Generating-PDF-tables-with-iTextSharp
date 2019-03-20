@@ -1,6 +1,6 @@
-﻿namespace Generating_PDF_with_iTextSharp
+﻿namespace Generating_PDF_with_iTextSharp.ScoreTable
 {
-    class Score
+    public class Score
     {
         public const string LEVEL = "Level";
         public const string TIME = "Time";
