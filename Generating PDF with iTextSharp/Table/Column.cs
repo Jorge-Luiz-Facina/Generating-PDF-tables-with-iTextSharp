@@ -12,6 +12,5 @@ namespace Generating_PDF_with_iTextSharp.Table
             this.name = name;
             this.font = font;
         }
-        
     }
 }

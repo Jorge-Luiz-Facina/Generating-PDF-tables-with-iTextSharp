@@ -71,12 +71,12 @@ namespace Generating_PDF_with_iTextSharp.Table
         {
             foreach (Score score in scores)
             {
-                addCell(score.getLevel(), font);
-                addCell(score.getTime(), font);
-                addCell(score.getCorrectPlane(), font);
-                addCell(score.getNeutralPlane(), font);
-                addCell(score.getBadPlane(), font);
-                addCell(score.getTerriblePlane(), font);
+                addCell(score.level, font);
+                addCell(score.time, font);
+                addCell(score.correctPlane, font);
+                addCell(score.neutralPlane, font);
+                addCell(score.badPlane, font);
+                addCell(score.terriblePlane, font);
             }
         }
 

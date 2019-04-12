@@ -9,13 +9,12 @@
         public const string BAD_PLANE = "Bad Plane";
         public const string TERRIBLE_PLANE = "Terrible Plane";
 
-
-        private string level;
-        private string time;
-        private string correctPlane;
-        private string neutralPlane;
-        private string badPlane;
-        private string terriblePlane;
+        public string level { get; private set; }
+        public string time { get; private set; }
+        public string correctPlane { get; private set; }
+        public string neutralPlane { get; private set; }
+        public string badPlane { get; private set; }
+        public string terriblePlane { get; private set; }
 
         public Score setLevel(string level)
         {
@@ -51,36 +50,6 @@
         {
             this.terriblePlane = terriblePlane;
             return this;
-        }
-
-        public string getLevel()
-        {
-            return level;
-        }
-
-        public string getTime()
-        {
-            return time;
-        }
-
-        public string getCorrectPlane()
-        {
-            return correctPlane;
-        }
-
-        public string getNeutralPlane()
-        {
-            return neutralPlane;
-        }
-
-        public string getBadPlane()
-        {
-            return badPlane;
-        }
-
-        public string getTerriblePlane()
-        {
-            return terriblePlane;
         }
     }
 }
