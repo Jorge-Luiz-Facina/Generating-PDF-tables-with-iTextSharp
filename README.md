@@ -15,8 +15,3 @@
 - [xUnit](https://xunit.github.io/)
 
 - [Microsoft xUnit](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test)
-
-## Author
-
-| [<img src="https://avatars.githubusercontent.com/MainDuel?v=3&s=115"><br><sub>@MainDuel</sub>](https://github.com/MainDuel) |
-| :---: |
